@@ -41,7 +41,10 @@ export default function AdminLoginPage() {
       <div className="admin-wrap" style={{ maxWidth: 440 }}>
         <div className="admin-card">
           <h1 style={{ fontSize: 28, marginBottom: 8 }}>Admin</h1>
-          <p className="modal-sub">Beverse School control panel</p>
+          <p className="modal-sub">
+            Sign in with the credentials from your <code>.env</code> file (
+            <code>ADMIN_EMAIL</code> / <code>ADMIN_PASSWORD</code>).
+          </p>
           <form className="admin-form" onSubmit={onSubmit}>
             <label>
               Email

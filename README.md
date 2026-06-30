@@ -13,10 +13,30 @@ npm run dev
 - **Website:** http://localhost:3000  
 - **Admin:** http://localhost:3000/admin  
 
-Default admin (change in `.env` before production):
+Default admin uses values from your `.env` file:
 
-- Email: `admin@beverseschool.com`
-- Password: `BeverseAdmin2026!`
+- `ADMIN_EMAIL` (default: `admin@beverseschool.com`)
+- `ADMIN_PASSWORD` (you set this — must be 8+ characters)
+
+After changing `.env`, run `npm run db:seed` or just log in once (credentials auto-sync from `.env`).
+
+Login URLs: `/admin` or `/admin/login`
+
+### Supabase (recommended for production)
+
+**Yes — Supabase is a good fit** for Beverse School:
+
+| Need | Supabase feature |
+|------|------------------|
+| Database | Postgres (replace SQLite `DATABASE_URL` with Supabase connection string) |
+| Mentor photos | Storage bucket `mentor-photos` |
+| User auth (optional later) | Supabase Auth instead of custom JWT |
+| Admin | Keep current admin panel; store admin in Postgres |
+
+**Local dev:** keep SQLite (current setup).  
+**Production:** create a Supabase project → run `supabase/schema.sql` in SQL Editor → set `DATABASE_URL` to the pooler URL → `npm run db:seed`.
+
+Prisma works with both — only `DATABASE_URL` changes.
 
 ## Features
 

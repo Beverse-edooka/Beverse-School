@@ -11,10 +11,10 @@ export function Nav() {
         <div className="brand">
           <Image
             src="/images/logo-white.png"
-            alt="Beverse"
-            width={120}
-            height={28}
-            className="h-[28px] w-auto"
+            alt="Beverse School"
+            width={200}
+            height={48}
+            className="brand-logo"
             priority
           />
           <span className="sc">School</span>

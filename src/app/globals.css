@@ -28,7 +28,9 @@ a{text-decoration:none;color:inherit}
 /* nav */
 header{position:sticky;top:0;z-index:40;backdrop-filter:blur(16px);background:rgba(5,8,13,.6);border-bottom:1px solid var(--bd)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:13px}.brand img{height:28px}.brand .sc{font-family:var(--font-display);font-weight:600;font-size:19px;color:#fff;padding-left:13px;border-left:1px solid var(--bd2)}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-logo{height:clamp(30px,3.8vw,50px);width:auto;max-width:min(200px,38vw);object-fit:contain}
+.brand .sc{font-family:var(--font-display);font-weight:600;font-size:clamp(15px,1.6vw,19px);color:#fff;padding-left:13px;border-left:1px solid var(--bd2);white-space:nowrap}
 .nlinks{display:flex;gap:32px}.nlinks a{font-size:15px;color:var(--muted);font-weight:500;transition:.2s}.nlinks a:hover{color:#fff}
 .nav-cta{display:flex;gap:14px;align-items:center}.nav-cta .glow{padding:11px 20px}
 /* hero */
@@ -169,11 +171,28 @@ footer ul{list-style:none}footer li{margin-bottom:10px}footer li a{font-size:14p
 .steps .sgcard .num{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--lime),var(--green));color:#06210a;font-family:var(--font-display);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .steps .sgcard .ph2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px}
 .steps .sgcard h3{font-size:18px;margin-bottom:10px}
-.paths .sgcard{position:relative;padding:38px 34px}
-.paths .clinical-label{color:var(--muted)}.paths .clinical-title{color:#B6C4CC}.paths .clinical-sub{color:var(--muted)}
-.paths .clinical-row{color:var(--muted)}.paths .clinical-row b{color:#C2CED5}.paths .clinical-row .sm{color:var(--faint)}
-.paths .lead-row{color:#E4ECEF}.paths .lead-row b{color:#fff}.paths .lead-row .sm{color:var(--muted)}
-.paths .lead-row.sal b{color:var(--lime)}
+.sgcard-rib{flex:none}
+.sgcard-inner{flex:1;display:flex;flex-direction:column;padding:0}
+.sgcard .sgcard-inner{padding:4px 0 0}
+.paths .sgcard{position:relative}
+.paths .sgcard .newpill{position:absolute;top:22px;right:22px}
+.opp-eyebrow{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:16px}
+.opp-eyebrow-lead{color:var(--lime)}
+.opp-intro{margin-bottom:18px}
+.opp-row{display:flex;align-items:flex-start;gap:13px;padding:14px 0;border-top:1px solid var(--bd);font-size:15.5px}
+.opp-row .ic{width:23px;height:23px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.opp-row-clinical{color:var(--muted)}
+.opp-row-clinical .ic{background:rgba(255,255,255,.07)}
+.opp-row-clinical .ic .d{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.opp-row-clinical b{color:#C2CED5}
+.opp-row-clinical .sm{color:var(--faint)}
+.opp-row-lead{color:#E4ECEF}
+.opp-row-lead .ic{background:rgba(93,196,1,.2)}
+.opp-row-lead .ic svg{width:13px;height:13px;stroke:var(--lime)}
+.opp-row-lead b{color:#fff}
+.opp-row-lead .sm{color:var(--muted)}
+.opp-row-lead.sal b{color:var(--lime);font-size:18px}
+.opp-row-clinical.sal b{font-size:18px}
 .panel.sgcard{display:none;grid-template-columns:1fr 1fr;gap:30px;padding:40px 40px 36px}
 .panel.sgcard.active{display:grid}
 .panel.sgcard .rib{position:absolute;top:0;left:0;right:0}
@@ -239,6 +258,8 @@ footer ul{list-style:none}footer li{margin-bottom:10px}footer li a{font-size:14p
   .wrap{padding:0 16px}
   .badge .badge-dot,.pill .badge-dot{display:none}
   .badge,.pill{gap:0}
+  .brand-logo{height:clamp(28px,8vw,36px);max-width:min(160px,52vw)}
+  .brand .sc{font-size:14px;padding-left:10px}
   .shead{margin-bottom:40px}
   .shead p{font-size:16px}
   .sgcard{padding:22px 20px}
