@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model Mentor {
+  id         String   @id @default(cuid())
+  name       String
+  role       String
+  bio        String
+  photoUrl   String?
+  featured   Boolean  @default(false)
+  sortOrder  Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Batch {
+  id        String           @id @default(cuid())
+  number    Int              @unique
+  name      String
+  maxSeats  Int              @default(25)
+  status    String           @default("open")
+  createdAt DateTime         @default(now())
+  entries   WaitlistEntry[]
+}
+
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  batchId   String
+  batch     Batch    @relation(fields: [batchId], references: [id])
+  fullName  String
+  email     String
+  phone     String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+
+  @@unique([email, batchId])
+}
+
+model SiteUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  fullName     String
+  createdAt    DateTime @default(now())
+}
